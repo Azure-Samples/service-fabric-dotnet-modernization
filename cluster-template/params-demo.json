@@ -1,0 +1,134 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"SF-ClusterName": {
+			"value": "clustname"
+		},
+		"SF-ClusterLocation": {
+			"value": "centralus"
+		},
+		"SF-ReliabilityLevel": {
+			"value": "Silver"
+		},
+		"SF-DurabilityLevel": {
+			"value": "Silver"
+		},
+		"SF-ApplicationStartPort": {
+			"value": 20000
+		},
+		"SF-ApplicationEndPort": {
+			"value": 30000
+		},
+		"SF-EphemeralStartPort": {
+			"value": 49152
+		},
+		"SF-EphemeralEndPort": {
+			"value": 65534
+		},
+		"SF-TcpGatewayPort": {
+			"value": 19000
+		},
+		"SF-HttpGatewayPort": {
+			"value": 19080
+		},
+		"sourceVaultValue": {
+			"value": null
+		},
+		"certificateThumbprint": {
+			"value": null
+		},
+		"certificateUrlValue": {
+			"value": null
+		},
+		"PrimaryNT-TypeName": {
+			"value": "primaryNT"
+		},
+		"PrimaryNT-NodeName": {
+			"value": "primaryNT"
+		},
+		"PrimaryNT-Count": {
+			"value": 5
+		},
+		"PrimaryNT-Size": {
+			"value": "Standard_D2_v3"
+		},
+		"PrimaryNT-SubnetID": {
+			"value": "/subscriptions/132fb7b3-f10c-4a20-a84f-a0081215007a/resourceGroups/gmsavnetrg/providers/Microsoft.Network/virtualNetworks/gmsavnet/subnets/default"
+		},
+		"PrimaryNT-ILBAddress": {
+			"value": "10.0.0.252"
+		},
+		"WebNT-TypeName": {
+			"value": "webNT"
+		},
+		"WebNT-NodeName": {
+			"value": "webNT"
+		},
+		"WebNT-Count": {
+			"value": 5
+		},
+		"WebNT-Size": {
+			"value": "Standard_D2s_v3"
+		},
+		"WebNT-SubnetID": {
+			"value": "/subscriptions/132fb7b3-f10c-4a20-a84f-a0081215007a/resourceGroups/gmsavnetrg/providers/Microsoft.Network/virtualNetworks/gmsavnet/subnets/default"
+		},
+		"WebNT-PublicIP-ID": {
+			"value": "/subscriptions/132fb7b3-f10c-4a20-a84f-a0081215007a/resourceGroups/acnsfc8shared/providers/Microsoft.Network/publicIPAddresses/aaauto1ip"
+		},
+		"VMSS-Location": {
+			"value": "centralus"
+		},
+		"VMSS-AdminUsername": {
+			"value": "ops"
+		},
+		"VMSS-AdminPassword": {
+			"reference": {
+				"keyVault": {
+					"id": "/subscriptions/132fb7b3-f10c-4a20-a84f-a0081215007a/resourceGroups/acnsfc8shared/providers/Microsoft.KeyVault/vaults/acnsfc8shared"
+				},
+				"secretName": "VM-AdminPassword"
+			}
+		},
+		"VMSS-NICName": {
+			"value": "nic"
+		},
+		"VMSS-ImageSkuPrimary": {
+			"value": "2016-Datacenter"
+		},
+		"VMSS-ImageSkuWeb": {
+			"value": "2016-Datacenter-with-Containers"
+		},
+		"SupportLog-AccountType": {
+			"value": "Standard_LRS"
+		},
+		"SupportLog-AccountName": {
+			"value": "sfsuplogclustname"
+		},
+		"AppLog-AccountType": {
+			"value": "Standard_LRS"
+		},
+		"AppLog-AccountName": {
+			"value": "sfapplogclustname"
+		},
+		"OMS-WorkspaceName": {
+			"value": "sfclustname1"
+		},
+		"OMS-WorkspaceLocation": {
+			"value": "East US"
+		},
+		"OMS-SKU": {
+			"value": "standalone"
+		},
+		"ActionGroupName": {
+			"value": "clustnameActionGroup"
+		},
+		"ActionGroupShortName": {
+			"value": "clustnameAcg"
+		},
+		"ActionGroupEmailAddress": {
+			"value": "mailboxname@server.com"
+		}
+	}
+}

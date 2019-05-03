@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "app01-Contact-latest";
+}
+<h2>Generating Load</h2>
+
+@{
+    System.Data.SqlClient.SqlConnection conn = new System.Data.SqlClient.SqlConnection(Environment.GetEnvironmentVariable("databaseconnectionstring"));
+    System.Data.SqlClient.SqlCommand cmd = new System.Data.SqlClient.SqlCommand("SELECT * FROM Person WHERE f2 = 'Caleb' or f2 = 'Gabriel'", conn);
+    conn.Open();
+    System.Data.SqlClient.SqlDataReader reader = cmd.ExecuteReader();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People</title>
+    <style>
+        table, th, td {
+            border: solid 1px #bbbbbb;
+            border-collapse: collapse;
+            padding: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Person Table - Contact - EnvVarMask</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>f1</th>
+                <th>f2</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @while (reader.Read())
+            {
+                <tr>
+                    <td>@reader.GetInt32(0)</td>
+                    <td>@reader.GetString(1)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
+@{
+    reader.Close();
+    if (conn.State == System.Data.ConnectionState.Open) { conn.Close(); }
+}
