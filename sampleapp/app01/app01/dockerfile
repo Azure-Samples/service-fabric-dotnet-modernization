@@ -1,4 +1,4 @@
-FROM microsoft/aspnet:4.7
+FROM mcr.microsoft.com/dotnet/core/aspnet
 ADD PublishOutput/ /inetpub/wwwroot
 
 # add a certificate and configure SSL
